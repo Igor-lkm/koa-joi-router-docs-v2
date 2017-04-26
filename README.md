@@ -51,6 +51,19 @@ router.get('/signup', {
   }
 });
 
+router.get('/about/:versionId', {
+  meta: {
+    swagger: {
+      description: 'Anything in meta.swagger is passed directly onto the swagger object for that path',
+      parameters: [
+        {name: 'versionId', in: 'path', description: 'this is a good way to get other items onto swagger object.'}
+      ]}
+  }
+  handler: function*() {
+    // ...
+  }
+})
+
 //if you use swagger-ui you will want path parameters so people can use the 'try it out' functionality, despite the fact that koa-joi-router doesn't support them
 router.get('/user/:id/friends/:friendId', {
   validate: {
