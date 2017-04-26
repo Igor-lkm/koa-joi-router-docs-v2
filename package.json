@@ -1,25 +1,26 @@
 {
   "name": "joi-router-swagger-docs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Swagger doc generator for koa-joi-router",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Pebble Webteam <webteam@pebble.com>",
+  "author": "Paul.42@gmail.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pebble/joi-router-swagger-docs.git"
+    "url": "https://github.com/paul42/joi-router-swagger-docs.git"
   },
   "license": "MIT",
   "dependencies": {
-    "joi": "^9.0.4",
-    "joi-to-json-schema": "^2.3.0",
+    "joi": "^10.4.1",
+    "joi-to-json-schema": "^2.5.0",
+    "joi-to-swagger": "^1.1.0",
     "lodash": "^4.15.0",
     "path-to-regexp": "^1.5.3"
   },
   "devDependencies": {
-    "koa-joi-router": "4.0.0",
+    "koa-joi-router": "^4.0.0",
     "mocha": "3.1.2"
   }
 }

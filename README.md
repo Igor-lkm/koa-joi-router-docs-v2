@@ -1,5 +1,16 @@
 # joi-router-swagger-docs
 
+# note from new maintainer
+I'm sort of forking this for my own use - I will help out if there are issues, but most of this will not be very helpful.
+
+Still missing:
+- convert route outputs into swagger
+- finish converting from joi-to-json-schema to [joi-to-swagger](https://github.com/ChiperSoft/joi-to-swagger) (there's no npm link, but there is a github link)
+- make tests to demonstrate
+- find out why swagger-cli throws validate errors on anything I create.
+
+
+
 A node module for generating [Swagger 2.0](http://swagger.io/) JSON
 definitions from existing [koa-joi-router](https://github.com/koajs/joi-router)
 routes.
@@ -40,6 +51,27 @@ router.get('/signup', {
   }
 });
 
+//if you use swagger-ui you will want path parameters so people can use the 'try it out' functionality, despite the fact that koa-joi-router doesn't support them
+router.get('/user/:id/friends/:friendId', {
+  validate: {
+    path: Joi.object().keys({
+      id: Joi.string().alphanum().max(24).description('id of user').required(),
+      friendId: Joi.string().alphanum().max(24).description('id of user\'s friend'),
+    })
+    output: {
+      200: {
+        body: {
+          userId: Joi.string().description('The friend of the user. they are pretty cool.')
+        }
+      }
+    }
+  },
+  handler: function*() {
+    // ...
+  }
+});
+
+swaggerAPI = new SwaggerAPI();
 swaggerAPI.addJoiRouter(router);
 
 let spec = swaggerAPI.generateSpec({
@@ -75,10 +107,10 @@ Create a Swagger specification for this API. A base specification should be
 provided with an `info` object (containing at least the `title` and `version`
 strings) and any other global descriptions.
 
-## Sponsored by
+## Thanks for starting this:
 
 [Pebble Technology!](https://www.pebble.com)
 
 ## License
 
-[MIT](https://github.com/pebble/joi-router-swagger-docs/blob/master/LICENSE)
+[MIT](https://github.com/paul42/joi-router-swagger-docs/blob/master/LICENSE)
