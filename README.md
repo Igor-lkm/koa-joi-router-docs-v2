@@ -14,6 +14,14 @@ test suites, AWS Lambda/serverless, etc.
 ## Preview
 <img width="860" alt="code_to_docs" src="http://storage.360buyimg.com/mtd/home/intro-2x_m1495439865552.png">
 
+## Install
+```bash
+# use npm
+npm install koa-joi-router-docs --save
+# use yarn
+yarn add koa-joi-router-docs
+```
+
 ## Example
 Visit [example/](./example) folder to see the full example.
 
