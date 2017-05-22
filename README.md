@@ -12,10 +12,10 @@ take advantage of various Swagger 2.0 tools for generating client libraries,
 test suites, AWS Lambda/serverless, etc.
 
 ## Preview
-![Intro](http://storage.360buyimg.com/mtd/home/intro_min1495437867684.png)
+<img width="860" alt="code_to_docs" src="http://storage.360buyimg.com/mtd/home/intro-2x_m1495439865552.png">
 
 ## Example
-Visit [example/](./blob/master/example) folder to see the full example.
+Visit [example/](./example) folder to see the full example.
 
 ```js
 const SwaggerAPI = require('joi-router-swagger-docs').SwaggerAPI
