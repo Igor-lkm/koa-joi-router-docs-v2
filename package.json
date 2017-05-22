@@ -13,8 +13,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "joi": "^10.4.1",
-    "joi-to-json-schema": "^2.5.0",
     "joi-to-swagger": "^1.1.0",
     "lodash": "^4.15.0",
     "path-to-regexp": "^1.5.3"
