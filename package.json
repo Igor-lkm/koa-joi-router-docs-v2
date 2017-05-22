@@ -1,15 +1,18 @@
 {
-  "name": "joi-router-swagger-docs",
+  "name": "koa-joi-router-docs",
   "version": "0.1.0",
-  "description": "Swagger doc generator for koa-joi-router",
+  "description": "OpenAPI(aka Swagger) API docs generator for koa-joi-router.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Paul.42@gmail.com",
+  "author": {
+    "name": "Edward Chu",
+    "email": "crazyzyt@gmail.com"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/paul42/joi-router-swagger-docs.git"
+    "url": "https://github.com/o2team/koa-joi-router-docs"
   },
   "license": "MIT",
   "dependencies": {
