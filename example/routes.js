@@ -1,9 +1,13 @@
-const SwaggerAPI = require('../').SwaggerAPI
+const { SwaggerAPI } = require('../')
 const Router = require('koa-joi-router')
 const Joi = Router.Joi
 
-// Define the routes using `koa-joi-router`
+/**
+ * Define routes
+ */
 const router = Router()
+
+// Get /signup
 router.get('/signup', {
   meta: {
     swagger: {
@@ -33,14 +37,12 @@ router.get('/signup', {
   }
 })
 
+// Get /user/:_id
 router.get('/user/:_id', {
   meta: {
     swagger: {
       summary: 'Get User Info',
-      description: `
-Note: \n
-Sensitive data can only be viewed by the \`corresponding user\` or \`Admin\`.
-      `,
+      description: `Note: \nSensitive data can only be viewed by the \`corresponding user\` or \`Admin\`.`,
       tags: ['users']
     }
   },
@@ -55,7 +57,7 @@ Sensitive data can only be viewed by the \`corresponding user\` or \`Admin\`.
           username: Joi.string().description('User name')
         }).options({
           allowUnknown: true
-        }).description('User Object')
+        }).description('User object')
       }
     }
   },
@@ -68,7 +70,9 @@ Sensitive data can only be viewed by the \`corresponding user\` or \`Admin\`.
   }
 })
 
-// Generate Swagger JSON from the router object
+/**
+ * Generate Swagger json from the router object
+ */
 const generator = new SwaggerAPI()
 generator.addJoiRouter(router)
 
@@ -86,10 +90,16 @@ const spec = generator.generateSpec({
   }],
 })
 
+/**
+ * return Swagger json
+ */
 router.get('/_api.json', async ctx => {
   ctx.body = JSON.stringify(spec, null, '  ')
 })
 
+/**
+ * return API html
+ */
 router.get('/apiDocs', async ctx => {
   ctx.body = `
   <!DOCTYPE html>
@@ -99,16 +109,6 @@ router.get('/apiDocs', async ctx => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Example API</title>
-    <style>
-      api-logo {
-        background: #000;
-        background-image: linear-gradient(0deg, #263238 0%, #000 100%);
-      }
-      api-logo > img {
-        padding: 20px;
-        width: 80% !important;
-      }
-    </style>
   </head>
   <body>
     <redoc spec-url='/_api.json' lazy-rendering></redoc>
