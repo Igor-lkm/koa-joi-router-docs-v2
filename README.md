@@ -1,15 +1,6 @@
-# joi-router-swagger-docs
+# Koa-Joi-Router Docs Generator
 
-# note from new maintainer
-I'm sort of forking this for my own use - I will help out if there are issues, but most of this will not be very helpful.
-
-Still missing:
-- convert route outputs into swagger
-- finish converting from joi-to-json-schema to [joi-to-swagger](https://github.com/ChiperSoft/joi-to-swagger) (there's no npm link, but there is a github link)
-- make tests to demonstrate
-- find out why swagger-cli throws validate errors on anything I create.
-
-
+This project is based on [paul42/joi-router-swagger-docs](https://github.com/paul42/joi-router-swagger-docs).
 
 A node module for generating [Swagger 2.0](http://swagger.io/) JSON
 definitions from existing [koa-joi-router](https://github.com/koajs/joi-router)
@@ -20,83 +11,132 @@ Aiming to be a replacement for
 take advantage of various Swagger 2.0 tools for generating client libraries,
 test suites, AWS Lambda/serverless, etc.
 
-This is very WIP (many things missing or broken), and thus is not available
-on npm yet.
+## Preview
+![Intro](http://storage.360buyimg.com/mtd/home/intro_min1495437867684.png)
 
 ## Example
+Visit [example/](./blob/master/example) folder to see the full example.
 
 ```js
+const SwaggerAPI = require('joi-router-swagger-docs').SwaggerAPI
+const Router = require('koa-joi-router')
+const Joi = Router.Joi
 
-const SwaggerAPI = require('joi-router-swagger-docs').SwaggerAPI;
-const Router = require('koa-joi-router');
-const Joi = Router.Joi;
-const router = router();
-
+// Define the routes using `koa-joi-router`
+const router = Router()
 router.get('/signup', {
+  meta: {
+    swagger: {
+      summary: 'User Signup',
+      description: 'Signup with username and password.',
+      tags: ['users']
+    }
+  },
   validate: {
     type: 'json',
     body: {
-      name: Joi.string().max(100).description('new user name')
+      username: Joi.string().alphanum().min(3).max(30).required(),
+      password: Joi.string().alphanum().min(6).max(30).required()
     },
     output: {
       200: {
         body: {
-          userId: Joi.string().description('newly created user id')
+          userId: Joi.string().description('Newly created user id')
         }
       }
     }
   },
-  handler: function*() {
-    // ...
-  }
-});
-
-router.get('/about/:versionId', {
-  meta: {
-    swagger: {
-      description: 'Anything in meta.swagger is passed directly onto the swagger object for that path',
-      parameters: [
-        {name: 'versionId', in: 'path', description: 'this is a good way to get other items onto swagger object.'}
-      ]}
-  }
-  handler: function*() {
-    // ...
+  handler: async ctx => {
+    ctx.body = {
+      userId: 'signup'
+    }
   }
 })
 
-//if you use swagger-ui you will want path parameters so people can use the 'try it out' functionality, despite the fact that koa-joi-router doesn't support them
-router.get('/user/:id/friends/:friendId', {
+router.get('/user/:_id', {
+  meta: {
+    swagger: {
+      summary: 'Get User Info',
+      description: `
+Note: \n
+Sensitive data can only be viewed by the \`corresponding user\` or \`Admin\`.
+      `,
+      tags: ['users']
+    }
+  },
   validate: {
     path: Joi.object().keys({
-      id: Joi.string().alphanum().max(24).description('id of user').required(),
-      friendId: Joi.string().alphanum().max(24).description('id of user\'s friend'),
-    })
+      _id: Joi.string().alphanum().max(24).description('User id').required()
+    }),
     output: {
-      200: {
-        body: {
-          userId: Joi.string().description('The friend of the user. they are pretty cool.')
-        }
+      '200-299': {
+        body: Joi.object({
+          userId: Joi.string().description('User id'),
+          username: Joi.string().description('User name')
+        }).options({
+          allowUnknown: true
+        }).description('User Object')
       }
     }
   },
-  handler: function*() {
-    // ...
+  handler: async ctx => {
+    console.log('getUser...')
+    ctx.body = {
+      userId: ctx.params._id,
+      username: ctx.params._id
+    }
   }
-});
+})
 
-swaggerAPI = new SwaggerAPI();
-swaggerAPI.addJoiRouter(router);
+// Generate Swagger JSON from the router object
+const generator = new SwaggerAPI()
+generator.addJoiRouter(router)
 
-let spec = swaggerAPI.generateSpec({
+const spec = generator.generateSpec({
   info: {
     title: 'Example API',
-    description: 'API for creating and editing examples',
+    description: 'API for creating and editing examples.',
     version: '1.1'
   },
-  basePath: '/api/v1'
-});
+  basePath: '/api',
+  tags: [{
+    name: 'users',
+    description: `A User represents a person who can login 
+      and take actions subject to their granted permissions.`
+  }],
+})
 
-console.log(JSON.stringify(spec, null, '  '));
+router.get('/_api.json', async ctx => {
+  ctx.body = JSON.stringify(spec, null, '  ')
+})
+
+router.get('/apiDocs', async ctx => {
+  ctx.body = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example API</title>
+    <style>
+      api-logo {
+        background: #000;
+        background-image: linear-gradient(0deg, #263238 0%, #000 100%);
+      }
+      api-logo > img {
+        padding: 20px;
+        width: 80% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <redoc spec-url='/_api.json' lazy-rendering></redoc>
+    <script src="https://rebilly.github.io/ReDoc/releases/latest/redoc.min.js"></script>
+  </body>
+  </html>
+  `
+})
 ```
 
 ## API
@@ -120,10 +160,29 @@ Create a Swagger specification for this API. A base specification should be
 provided with an `info` object (containing at least the `title` and `version`
 strings) and any other global descriptions.
 
-## Thanks for starting this:
+## Acknowledgements
 
-[Pebble Technology!](https://www.pebble.com)
+We are grateful to the authors of existing related projects for their ideas and collaboration:
 
-## License
+---
 
-[MIT](https://github.com/paul42/joi-router-swagger-docs/blob/master/LICENSE)
+# Donation
+
+If you find this project useful, you can buy us a cup of coffee:    
+
+<a href="https://www.paypal.me/chuyik" target="blank">
+<img width="200" src="https://storage.360buyimg.com/mtd/home/donate_paypal_min1495016435786.png" alt="">
+</a><br>     
+
+<img width="650" src="https://storage.360buyimg.com/mtd/home/donate_cn1495017701926.png" alt="">
+
+## Acknowledgements
+We are grateful to the authors of existing related projects for their ideas and collaboration:
+
+- [@paul42](https://github.com/paul42/joi-router-swagger-docs)
+- [@pebble](https://github.com/pebble/joi-router-swagger-docs)
+
+## Contributors
+[![chuyik](https://avatars2.githubusercontent.com/u/6262943?v=3&s=120)](https://github.com/chuyik) |
+:---:|
+[chuyik](https://github.com/chuyik) |
