@@ -3,6 +3,10 @@ module.exports = {
     node: true,
     es6: true,
   },
+  globals: {
+    describe: true,
+    it: true
+  },
   extends: 'eslint:recommended',
   rules: {
     'no-console': ['error', { allow: ['warn', 'error'] }],

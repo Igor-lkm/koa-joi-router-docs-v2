@@ -4,7 +4,7 @@
   "description": "OpenAPI(aka Swagger) API docs generator for koa-joi-router.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r intelli-espower-loader"
   },
   "author": {
     "name": "Edward Chu",
@@ -16,13 +16,15 @@
   },
   "license": "MIT",
   "dependencies": {
-    "joi-to-swagger": "git+https://github.com/chuyik/joi-to-swagger.git",
+    "joi-to-swagger": "https://github.com/chuyik/joi-to-swagger",
     "lodash": "^4.15.0",
     "path-to-regexp": "^1.5.3"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
-    "koa-joi-router": "^4.0.0",
-    "mocha": "3.1.2"
+    "intelli-espower-loader": "^1.0.1",
+    "koa-joi-router": "^5.0.0",
+    "mocha": "3.1.2",
+    "power-assert": "^1.4.4"
   }
 }
