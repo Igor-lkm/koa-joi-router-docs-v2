@@ -99,4 +99,58 @@ describe('API', function () {
       ['200', '201'].every(v => v in spec.paths['/output-outside-validate'].get.responses)
     )
   })
+
+  it('should consider the router prefix', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+    router.prefix('/api')
+ 
+    router.get('/signup', {
+      meta: {
+        swagger: {
+          summary: 'User Signup'
+        }
+      },
+      validate: {
+      },
+      handler: async () => {}
+    })
+ 
+    generator.addJoiRouter(router)
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    })
+    assert(['/api/signup'].every( r => r in spec.paths))
+  })
+
+  it('should consider the prefix option over JoiRouter', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+    router.prefix('/api')
+ 
+    router.get('/signup', {
+      meta: {
+        swagger: {
+          summary: 'User Signup'
+        }
+      },
+      validate: {
+      },
+      handler: async () => {}
+    })
+ 
+    generator.addJoiRouter(router, { prefix: '/other-api' })
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    })
+    assert(['/other-api/signup'].every( r => r in spec.paths))
+  })
 })

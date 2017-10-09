@@ -38,7 +38,7 @@ routes set up before calling this method (which pulls the route definitions
 from the router's `.routes` property).
 
 Options:
-- prefix: Prefix to add to Swagger path
+- prefix: Prefix to add to Swagger path (use prefix from JoiRouter if not set)
 
 ### swaggerAPI.generateSpec(baseSpec, options)
 
