@@ -16,8 +16,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "joi-to-swagger": "https://github.com/chuyik/joi-to-swagger",
     "lodash": "^4.15.0",
+    "o2team-joi-to-swagger": "^1.2.0",
     "path-to-regexp": "^1.5.3"
   },
   "devDependencies": {

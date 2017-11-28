@@ -797,12 +797,6 @@ items@2.x.x:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/items/-/items-2.1.1.tgz#8bd16d9c83b19529de5aea321acaada78364a198"
 
-"joi-to-swagger@https://github.com/chuyik/joi-to-swagger":
-  version "1.0.2"
-  resolved "https://github.com/chuyik/joi-to-swagger#56657c96b241b40b63d1f32bc5bfaca9eb39bbd2"
-  dependencies:
-    lodash "^4.0.2"
-
 joi@10.2.2:
   version "10.2.2"
   resolved "https://registry.yarnpkg.com/joi/-/joi-10.2.2.tgz#dc5a792b7b4c6fffa562242a95b55d9d3f077e24"
@@ -1012,6 +1006,12 @@ natural-compare@^1.4.0:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+
+o2team-joi-to-swagger@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/o2team-joi-to-swagger/-/o2team-joi-to-swagger-1.2.0.tgz#a5fec4ead7d798c6ad1d66616b2bbf74163aec48"
+  dependencies:
+    lodash "^4.0.2"
 
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
