@@ -1007,9 +1007,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-o2team-joi-to-swagger@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/o2team-joi-to-swagger/-/o2team-joi-to-swagger-1.2.0.tgz#a5fec4ead7d798c6ad1d66616b2bbf74163aec48"
+o2team-joi-to-swagger@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.npmjs.org/o2team-joi-to-swagger/-/o2team-joi-to-swagger-1.3.1.tgz#c311aa2b658757cb7f63c93b7969fa1f6b5767bf"
+  integrity sha512-iULXcA1p6w5JT4cTBPNKOG9c2fmeJ7pqN5aI1DMW3v6XyapBlFhvJ0Uuvgj24coIuoCWBq/dW2Wp69tdk2M8dQ==
   dependencies:
     lodash "^4.0.2"
 
