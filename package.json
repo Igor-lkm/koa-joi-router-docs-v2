@@ -1,6 +1,6 @@
 {
   "name": "koa-joi-router-docs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenAPI(aka Swagger) API docs generator for koa-joi-router.",
   "main": "index.js",
   "scripts": {
