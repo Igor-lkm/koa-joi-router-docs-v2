@@ -1171,10 +1171,10 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
-o2team-joi-to-swagger@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/o2team-joi-to-swagger/-/o2team-joi-to-swagger-3.2.1.tgz#7c7aba24197f437fffe691ae483990b1e262641e"
-  integrity sha512-e9MZk9Ld75qIOwXKUuqQWVJQqoxngyw275h1ftLlh3RYRrYsKZm02ag5n3lE7CbIug7UiCLdCaYD0w6tfedILQ==
+o2team-joi-to-swagger@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.npmjs.org/o2team-joi-to-swagger/-/o2team-joi-to-swagger-3.2.2.tgz#52c337a4d80bc3195d9dc4c5682b8093fdbb7102"
+  integrity sha512-9OfFltFX/q8XmuFO0I932Q4Fpu9Ys40Qs778gblvTYcliCRpnxQ71rbyUCa+w8eZUwBH9XcSVL+w8V27Td0oKw==
   dependencies:
     lodash "^4.17.11"
 

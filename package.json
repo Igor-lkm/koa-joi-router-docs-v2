@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.15",
-    "o2team-joi-to-swagger": "^3.2.1",
+    "o2team-joi-to-swagger": "^3.2.2",
     "path-to-regexp": "^3.0.0"
   },
   "devDependencies": {
