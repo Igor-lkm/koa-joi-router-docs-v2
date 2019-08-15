@@ -18,7 +18,7 @@ router.get('/user/:_id', {
   },
   validate: {
     params: {
-      _id: Joi.string().alphanum().max(24).description('User id').required()
+      _id: Joi.string().alphanum().max(24).example('abcdefg').description('User id').required()
     },
     output: {
       '200-299': {
@@ -49,10 +49,10 @@ router.post('/signup', {
   },
   validate: {
     type: 'json',
-    body: {
+    body: Joi.object({
       username: Joi.string().alphanum().min(3).max(30).required(),
       password: Joi.string().alphanum().min(6).max(30).required()
-    },
+    }).example({username: 'abcdefg', password: '123123'}),
     output: {
       200: {
         body: {
