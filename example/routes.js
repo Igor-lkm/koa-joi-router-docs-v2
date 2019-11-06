@@ -27,6 +27,11 @@ router.get('/user/:_id', {
         }).options({
           allowUnknown: true
         }).description('User object')
+      },
+      500: {
+        body: Joi.object({
+          message: Joi.string().description('error message')
+        }).description('error body')
       }
     }
   },
@@ -58,6 +63,11 @@ router.post('/signup', {
         body: {
           userId: Joi.string().description('Newly created user id')
         }
+      },
+      500: {
+        body: {
+          code: Joi.number().description('error code'),
+        }
       }
     }
   },
@@ -87,7 +97,14 @@ const spec = generator.generateSpec({
       and take actions subject to their granted permissions.`
   }],
 }, { 
-  defaultResponses: {} // Custom default responses if you don't like default 200
+  defaultResponses: {
+    200: {
+      description: 'OK'
+    },
+    500: {
+      description: 'ERROR'
+    }
+  } // Custom default responses if you don't like default 200
 })
 
 /**
