@@ -153,4 +153,42 @@ describe('API', function () {
     })
     assert(['/other-api/signup'].every( r => r in spec.paths))
   })
+
+  it('should return $ref with references', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+
+    const ProfileJoi = Joi.object({
+      profileName: Joi.string(),
+    })
+ 
+    router.get('/signup', {
+      validate: {
+        type: 'json',
+        body: ProfileJoi,
+        ref: "#/definitions/Profile",
+        output: {
+          200: {
+            body: ProfileJoi,
+            ref: "#/definitions/Profile",
+          }
+        }
+      },
+      handler: async () => {}
+    })
+ 
+    generator.addJoiRouter(router)
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/',
+      definitions: {
+        Profile: ProfileJoi
+      },
+    })
+    assert(spec.paths['/signup'].get.parameters[0].schema.$ref === "#/definitions/Profile")
+    assert(spec.paths['/signup'].get.responses[200].schema.$ref === "#/definitions/Profile")
+  })
 })

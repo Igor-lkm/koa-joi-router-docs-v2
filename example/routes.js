@@ -78,6 +78,36 @@ router.post('/signup', {
   }
 })
 
+const ProfileJoi = Joi.object({
+  profileName: Joi.string(),
+})
+// POST /profile using schema references `ref`
+router.post('/profile', {
+  meta: {
+    swagger: {
+      summary: 'Profile',
+      description: 'Signup with username and password.',
+      tags: ['users']
+    }
+  },
+  validate: {
+    type: 'json',
+    body: ProfileJoi,
+    ref: "#/definitions/Profile",
+    output: {
+      200: {
+        body: ProfileJoi,
+        ref: "#/definitions/Profile",
+      }
+    }
+  },
+  handler: async ctx => {
+    ctx.body = {
+      profileName: 'this is a profile name'
+    }
+  }
+})
+
 /**
  * Generate Swagger json from the router object
  */
@@ -96,6 +126,10 @@ const spec = generator.generateSpec({
     description: `A User represents a person who can login 
       and take actions subject to their granted permissions.`
   }],
+  // pass `definitions` if you need schema references
+  definitions: {
+    Profile: ProfileJoi
+  },
 }, { 
   defaultResponses: {
     200: {
