@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bump": "standard-version",
+    "release": "git push --follow-tags origin master && npm publish --registry=https://registry.npmjs.org/",
     "test": "mocha -r intelli-espower-loader"
   },
   "author": {
