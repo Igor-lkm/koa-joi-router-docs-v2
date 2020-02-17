@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/o2team/koa-joi-router-docs/compare/v1.0.3...v1.1.0) (2020-02-17)
+
+
+### Features
+
+* support schema references `$ref` ([aa4cba0](https://github.com/o2team/koa-joi-router-docs/commit/aa4cba04b747b2467746518334a880c643cb41c7))
+
+
+### Bug Fixes
+
+* assign defaultResponses to each API response and fix test ([ef6ec96](https://github.com/o2team/koa-joi-router-docs/commit/ef6ec9620c2bdeb95e86abc8d81b6e385b69bf07))
+
 ### [1.0.3](https://github.com/o2team/koa-joi-router-docs/compare/v1.0.2...v1.0.3) (2019-11-06)
 
 
