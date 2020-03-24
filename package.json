@@ -23,12 +23,12 @@
     "path-to-regexp": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "5",
+    "eslint": "^6.8.0",
     "intelli-espower-loader": "^1.0.1",
     "koa-joi-router": "^6.0.0",
-    "mocha": "^6.2.2",
+    "mocha": "^7.1.1",
     "power-assert": "^1.6.1",
-    "standard-version": "^7.0.0"
+    "standard-version": "^7.1.0"
   },
   "optionalDependencies": {
     "class-validator": "^0.11.1",
