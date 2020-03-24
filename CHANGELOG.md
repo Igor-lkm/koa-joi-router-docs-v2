@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0-beta.0](https://github.com/o2team/koa-joi-router-docs/compare/v1.1.0...v1.2.0-beta.0) (2020-03-24)
+
+
+### Features
+
+* compatible with typescript class-validator ([8d7fbce](https://github.com/o2team/koa-joi-router-docs/commit/8d7fbcea970f99f5dd862c5df43f7e16657487b0))
+
 ## [1.1.0](https://github.com/o2team/koa-joi-router-docs/compare/v1.0.3...v1.1.0) (2020-02-17)
 
 
