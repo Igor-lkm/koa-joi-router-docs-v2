@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/o2team/koa-joi-router-docs/compare/v1.1.0...v1.2.1) (2020-03-24)
+
+
+### Features
+
+* compatible with typescript class-validator ([f8c4c26](https://github.com/o2team/koa-joi-router-docs/commit/f8c4c26237bf54880e7ec35c9d44e25222c167ee))
+
+
+### Bug Fixes
+
+* update dependencies ([ebbfb86](https://github.com/o2team/koa-joi-router-docs/commit/ebbfb8681a0504573f4debfef3155bb072f92309))
+* validate if swagger schema is empty ([8d02155](https://github.com/o2team/koa-joi-router-docs/commit/8d02155f965f86c17fc3d1ecfa97fb44111739f8))
+
 ## [1.2.0](https://github.com/o2team/koa-joi-router-docs/compare/v1.2.0-beta.1...v1.2.0) (2020-03-24)
 
 
