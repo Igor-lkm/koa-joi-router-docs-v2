@@ -1,5 +1,14 @@
 # Koa-Joi-Router Docs Generator
 
+
+## Why this fork?
+
+Original project: https://github.com/chuyik/koa-joi-router-docs
+
+This project uses latest koa route and replace `nullable` with `x-nullable`
+
+## Original text
+
 This project is based on [paul42/joi-router-swagger-docs](https://github.com/paul42/joi-router-swagger-docs).
 
 A node module for generating [Swagger 2.0](http://swagger.io/) JSON
