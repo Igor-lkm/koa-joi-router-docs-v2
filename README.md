@@ -1,24 +1,34 @@
-# Koa-Joi-Router Docs Generator
+# Koa-Joi-Router Docs Generator V2
 
+## Why v2?
 
-## Why this fork?
+This project is based on https://github.com/chuyik/koa-joi-router-docs which does not support latest Joi version.
 
-Original project: https://github.com/chuyik/koa-joi-router-docs
+1) This project uses latest `koa-joi-router` package. Also this package uses `joi-to-swagger`.
 
-This project uses latest koa route and replace `nullable` with `x-nullable`
+2) Also we can rename keys, like `nullable` to be `x-nullable`. For [example for redoc](https://redocly.com/docs/api-reference-docs/specification-extensions/x-nullable/#usage)
 
-## Original text
+Example:
 
-This project is based on [paul42/joi-router-swagger-docs](https://github.com/paul42/joi-router-swagger-docs).
+```js
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    }, undefined, { 'nullable': 'x-nullable' });
+```
+
+### Migration from koa-joi-router-docs
+
+No additional action required, it should be possible just to replace older package.
+```
+## About the package
 
 A node module for generating [Swagger 2.0](http://swagger.io/) JSON
 definitions from existing [koa-joi-router](https://github.com/koajs/joi-router)
 routes.
-
-Aiming to be a replacement for
-[koa-resourcer-docs](https://github.com/koajs/resourcer-docs) which can
-take advantage of various Swagger 2.0 tools for generating client libraries,
-test suites, AWS Lambda/serverless, etc.
 
 ## Preview
 <img width="860" alt="code_to_docs" src="http://storage.360buyimg.com/mtd/home/intro-2x_m1495439865552.png">
@@ -49,13 +59,24 @@ from the router's `.routes` property).
 Options:
 - prefix: Prefix to add to Swagger path (use prefix from JoiRouter if not set)
 
-### swaggerAPI.generateSpec(baseSpec, options)
+### swaggerAPI.generateSpec(baseSpec, options, renameKeys)
 
 Create a Swagger specification for this API. A base specification should be
 provided with an `info` object (containing at least the `title` and `version`
 strings) and any other global descriptions.
 
-Options:
+`baseSpec` example:
+```js
+{
+  info: {
+    title: 'Example API',
+    version: '1.1'
+  },
+  basePath: '/'
+}
+```
+
+`options` example:
 - defaultResponses: Custom default responses
   ```js
   {
@@ -65,25 +86,7 @@ Options:
   }
   ```
 
----
-
-# Donation
-
-If you find this project useful, you can buy us a cup of coffee:    
-
-<a href="https://www.paypal.me/chuyik" target="blank">
-<img width="200" src="https://storage.360buyimg.com/mtd/home/donate_paypal_min1495016435786.png" alt="">
-</a><br>     
-
-<img width="650" src="https://storage.360buyimg.com/mtd/home/donate_cn1495017701926.png" alt="">
-
-## Acknowledgements
-We are grateful to the authors of existing related projects for their ideas and collaboration:
-
-- [@paul42](https://github.com/paul42/joi-router-swagger-docs)
-- [@pebble](https://github.com/pebble/joi-router-swagger-docs)
-
-## Contributors
-[![chuyik](https://avatars2.githubusercontent.com/u/6262943?v=3&s=120)](https://github.com/chuyik) |
-:---:|
-[chuyik](https://github.com/chuyik) |
+  `renameKeys` example:
+  ```js
+  { 'nullable': 'x-nullable' }
+  ```
