@@ -36,9 +36,9 @@ routes.
 ## Install
 ```bash
 # use npm
-npm install koa-joi-router-docs --save
+npm install koa-joi-router-docs-v2 --save
 # use yarn
-yarn add koa-joi-router-docs
+yarn add koa-joi-router-docs-v2
 ```
 
 ## Example
