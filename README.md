@@ -23,7 +23,7 @@ Example:
 ### Migration from koa-joi-router-docs
 
 No additional action required, it should be possible just to replace older package.
-```
+
 ## About the package
 
 A node module for generating [Swagger 2.0](http://swagger.io/) JSON
