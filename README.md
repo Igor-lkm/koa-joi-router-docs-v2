@@ -1,5 +1,7 @@
 # Koa-Joi-Router Docs Generator V2
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Igor-lkm/koa-joi-router-docs-v2/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Igor-lkm/koa-joi-router-docs-v2/tree/master)
+
 ## Why v2?
 
 This project is based on https://github.com/chuyik/koa-joi-router-docs which does not support latest Joi version.
