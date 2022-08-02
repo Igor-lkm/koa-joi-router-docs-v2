@@ -80,15 +80,15 @@ strings) and any other global descriptions.
 
 `options` example:
 - defaultResponses: Custom default responses
-  ```js
+```js
   {
     200: {
       description: 'Success'
     }
   }
-  ```
+```
 
-  `renameKeys` example:
-  ```js
+`renameKeys` example:
+```js
   { 'nullable': 'x-nullable' }
-  ```
+```
