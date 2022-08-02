@@ -191,4 +191,45 @@ describe('API', function () {
     assert(spec.paths['/signup'].get.parameters[0].schema.$ref === "#/definitions/Profile")
     assert(spec.paths['/signup'].get.responses[200].schema.$ref === "#/definitions/Profile")
   })
+
+  it('expect replace keys form the list', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+
+    router.get('/signup', {
+      meta: {
+        swagger: {
+          summary: 'User Signup'
+        }
+      },
+      validate: {
+        type: 'json',
+        body: {
+          field: Joi.string().alphanum().min(3).max(30).required().allow(null)
+        },
+        output: {
+          200: {
+            body: {
+              userId: Joi.string().description('Newly created user id')
+            }
+          }
+        }
+      },
+      handler: async () => {}
+    })
+
+    const replaceKeys = {'nullable': 'x-nullable'}
+
+    generator.addJoiRouter(router)
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    }, undefined, replaceKeys);
+
+    assert.equal(spec.paths['/signup'].get.parameters[0].schema.properties.field['x-nullable'], true);
+    
+  })
 })
