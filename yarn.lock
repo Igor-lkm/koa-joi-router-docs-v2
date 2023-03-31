@@ -373,18 +373,18 @@
   "resolved" "https://registry.npmjs.org/class-transformer/-/class-transformer-0.5.1.tgz"
   "version" "0.5.1"
 
-"class-validator-jsonschema@^3.1.1":
-  "integrity" "sha512-xga/5rTDKaYysivdX6OWaVllAS2OGeXgRRaXRo5QAW+mSDOpbjrf5JhmdPvUKMEkGyQer0gCoferB3COl170Rg=="
-  "resolved" "https://registry.npmjs.org/class-validator-jsonschema/-/class-validator-jsonschema-3.1.1.tgz"
-  "version" "3.1.1"
+"class-validator-jsonschema@^5.0.0":
+  "integrity" "sha512-F1skc5+NHZUxtVH56js1wdPKayUoIEZNpiZeNYIAJO0L6hCODmlX+lXwb26RRqTrjo0U24tNkSujn/G0zOvZoQ=="
+  "resolved" "https://registry.npmjs.org/class-validator-jsonschema/-/class-validator-jsonschema-5.0.0.tgz"
+  "version" "5.0.0"
   dependencies:
     "lodash.groupby" "^4.6.0"
     "lodash.merge" "^4.6.2"
-    "openapi3-ts" "^2.0.0"
+    "openapi3-ts" "^3.0.0"
     "reflect-metadata" "^0.1.13"
-    "tslib" "^2.0.3"
+    "tslib" "^2.4.1"
 
-"class-validator@^0.13.1", "class-validator@^0.14.0":
+"class-validator@^0.14.0":
   "integrity" "sha512-ct3ltplN8I9fOwUd8GrP8UQixwff129BkEtuWDKL5W45cQuLd19xqmTLu5ge78YDm/fdje6FMt0hGOhl0lii3A=="
   "resolved" "https://registry.npmjs.org/class-validator/-/class-validator-0.14.0.tgz"
   "version" "0.14.0"
@@ -2206,12 +2206,12 @@
   dependencies:
     "mimic-fn" "^2.1.0"
 
-"openapi3-ts@^2.0.0":
-  "integrity" "sha512-TxhYBMoqx9frXyOgnRHufjQfPXomTIHYKhSKJ6jHfj13kS8OEIhvmE8CTuQyKtjjWttAjX5DPxM1vmalEpo8Qw=="
-  "resolved" "https://registry.npmjs.org/openapi3-ts/-/openapi3-ts-2.0.2.tgz"
-  "version" "2.0.2"
+"openapi3-ts@^3.0.0":
+  "integrity" "sha512-/ykNWRV5Qs0Nwq7Pc0nJ78fgILvOT/60OxEmB3v7yQ8a8Bwcm43D4diaYazG/KBn6czA+52XYy931WFLMCUeSg=="
+  "resolved" "https://registry.npmjs.org/openapi3-ts/-/openapi3-ts-3.2.0.tgz"
+  "version" "3.2.0"
   dependencies:
-    "yaml" "^1.10.2"
+    "yaml" "^2.2.1"
 
 "optionator@^0.8.1", "optionator@^0.8.3":
   "integrity" "sha512-+IW9pACdk3XWmmTXG8m3upGUJst5XRGzxMRjXzAuJ1XnIFNvfhjjIuYkDvysnPQ7qzqVzLt78BCruntqRhWQbA=="
@@ -3094,10 +3094,10 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.10.0.tgz"
   "version" "1.10.0"
 
-"tslib@^2.0.3":
-  "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
-  "version" "2.4.0"
+"tslib@^2.4.1":
+  "integrity" "sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
+  "version" "2.5.0"
 
 "type-check@~0.3.2":
   "integrity" "sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg=="
@@ -3286,10 +3286,10 @@
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   "version" "4.0.0"
 
-"yaml@^1.10.2":
-  "integrity" "sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg=="
-  "resolved" "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
-  "version" "1.10.2"
+"yaml@^2.2.1":
+  "integrity" "sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw=="
+  "resolved" "https://registry.npmjs.org/yaml/-/yaml-2.2.1.tgz"
+  "version" "2.2.1"
 
 "yargs-parser@^13.1.2", "yargs-parser@13.1.2":
   "integrity" "sha512-3lbsNRf/j+A4QuSZfDRA7HRSfWrzO0YjqTJd5kjAq37Zep1CEgaYmrH9Q3GwPiB9cHyd1Y1UwggGhJGoxipbzg=="
