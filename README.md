@@ -1,5 +1,7 @@
 # Koa-Joi-Router Docs Generator V2
 
+[![NPM](https://nodei.co/npm/koa-joi-router-docs-v2.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/koa-joi-router-docs-v2/) 
+
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Igor-lkm/koa-joi-router-docs-v2/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Igor-lkm/koa-joi-router-docs-v2/tree/master)
 
 ## Why v2?
