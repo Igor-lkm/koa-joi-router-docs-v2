@@ -42,6 +42,93 @@ describe('API', function () {
     assert(['info', 'basePath', 'swagger', 'paths', 'tags'].every(v => v in spec))
   })
 
+  it('should success with valid data and param', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+
+    const path = '/user/:id';
+
+    router.get(path, {
+      meta: {
+        swagger: {
+          summary: 'User Signup'
+        }
+      },
+      validate: {
+        type: 'json',
+        body: {
+          username: Joi.string().alphanum().min(3).max(30).required()
+        },
+        output: {
+          200: {
+            body: {
+              userId: Joi.string().description('Newly created user id')
+            }
+          }
+        }
+      },
+      handler: async () => {}
+    })
+
+    generator.addJoiRouter(router)
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    })
+
+    const expected = {};
+    expected[`${path}`] = {};
+    assert.notDeepEqual(spec.paths, expected);
+
+    assert(['info', 'basePath', 'swagger', 'paths', 'tags'].every(v => v in spec))
+  })
+
+  it('should success with nested path', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+
+    const path = '/path/:p/a/b/c/:id';
+    router.get(path, {
+      meta: {
+        swagger: {
+          summary: 'User Signup'
+        }
+      },
+      validate: {
+        type: 'json',
+        body: {
+          username: Joi.string().alphanum().min(3).max(30).required()
+        },
+        output: {
+          200: {
+            body: {
+              userId: Joi.string().description('Newly created user id')
+            }
+          }
+        }
+      },
+      handler: async () => {}
+    })
+
+    generator.addJoiRouter(router)
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    })
+
+    const expected = {};
+    expected[`${path}`] = {};
+    assert.notDeepEqual(spec.paths, expected);
+
+    assert(['info', 'basePath', 'swagger', 'paths', 'tags'].every(v => v in spec))
+  })
+
   it('should success with empty default response', function () {
     const generator = new SwaggerAPI()
     const router = Router()
@@ -246,6 +333,13 @@ describe('API', function () {
         }
       },
       validate: {
+        output: {
+          201: {
+            body: {
+              ok: Joi.bool()
+            }
+          }
+        }
       },
       handler: async () => {}
     })
