@@ -232,4 +232,36 @@ describe('API', function () {
     assert.equal(spec.paths['/signup'].get.parameters[0].schema.properties.field['x-nullable'], true);
     
   })
+
+  it('regexp as a route', function () {
+    const generator = new SwaggerAPI()
+    const router = Router()
+
+    const regexpPath = /^\/user\/([a-zA-Z0-9]+)$/;
+ 
+    router.get(regexpPath, {
+      meta: {
+        swagger: {
+          summary: 'Retrieve user by ID'
+        }
+      },
+      validate: {
+      },
+      handler: async () => {}
+    })
+ 
+    generator.addJoiRouter(router)
+    const spec = generator.generateSpec({
+      info: {
+        title: 'Example API',
+        version: '1.1'
+      },
+      basePath: '/'
+    })
+
+    const expected = {};
+    expected[`${regexpPath}`] = {};
+
+    assert.notDeepEqual(spec.paths, expected);
+  })
 })
