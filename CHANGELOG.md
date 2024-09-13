@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/Igor-lkm/koa-joi-router-docs-v2/compare/v1.5.0...v1.5.2) (2024-09-13)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([2ef2bce](https://github.com/Igor-lkm/koa-joi-router-docs-v2/commit/2ef2bce19f941bf2f27a0924e393ead2c4a3446a))
+
 ### [1.5.1](https://github.com/Igor-lkm/koa-joi-router-docs-v2/compare/v1.5.0...v1.5.1) (2024-09-13)
 
 
