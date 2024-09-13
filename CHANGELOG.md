@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/Igor-lkm/koa-joi-router-docs-v2/compare/v1.5.2...v1.5.3) (2024-09-13)
+
+
+### Bug Fixes
+
+* Allow regexp as a path ([4b0d792](https://github.com/Igor-lkm/koa-joi-router-docs-v2/commit/4b0d79272b3900d32eeb5d76efdcc75ec8062f95))
+
 ### [1.5.2](https://github.com/Igor-lkm/koa-joi-router-docs-v2/compare/v1.5.0...v1.5.2) (2024-09-13)
 
 
