@@ -30,7 +30,7 @@
     "standard-version": "^8.0.1"
   },
   "optionalDependencies": {
-    "class-validator": "^0.14.0",
+    "class-validator": "^0.14.2",
     "class-validator-jsonschema": "^5.0.0",
     "reflect-metadata": "^0.1.13"
   }
